@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff1f5">
+<title>For Prapti ♡</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;min-height:100dvh;padding:20px;
+ display:grid;place-items:center;
+ background:linear-gradient(135deg,#fff0f5,#ffe0eb,#fff8ef);
+ color:#805267;font-family:Georgia,serif;
+}
+.card{
+ width:100%;max-width:420px;padding:35px 25px;
+ text-align:center;background:#fffaf8;
+ border:1px solid white;border-radius:25px;
+ box-shadow:0 15px 45px #b96f8820;
+}
+.heart{font-size:45px;margin-bottom:15px}
+.tag{font:10px Arial,sans-serif;letter-spacing:3px;color:#bd8298}
+h1{font-size:clamp(28px,7vw,38px);line-height:1.2;margin:18px 0}
+p{font:14px/1.8 Arial,sans-serif}
+input{
+ width:100%;padding:14px;margin:12px 0;
+ border:1px solid #edcbd8;border-radius:12px;
+ font-size:16px;text-align:center;background:white;color:#805267
+}
+button{
+ border:0;border-radius:13px;padding:14px 18px;
+ background:#d97e9e;color:white;font-size:15px;
+ cursor:pointer;touch-action:manipulation
+}
+.mainbtn{width:100%;margin-top:10px}
+.secondary{background:#f5e5eb;color:#98647b}
+.hidden{display:none!important}
+.hint{min-height:20px;color:#bd547d;font-size:13px}
+.progress{color:#d17d9b;letter-spacing:5px;margin-bottom:24px}
+.letter{
+ margin:20px 0;padding:18px 12px;
+ background:#fff2f5;border:1px solid #f4dce5;border-radius:15px;
+ font-style:italic;line-height:1.8
+}
+.buttons{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.buttons button{flex:1;min-width:110px}
+#confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.petal{position:absolute;top:-30px;animation:fall 3s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(400deg);opacity:0}}
+@media(max-width:360px){body{padding:12px}.card{padding:28px 19px}}
+@media(prefers-reduced-motion:reduce){.petal{animation:none}}
+</style>
+</head>
+<body>
+<div id="confetti"></div>
+<main class="card">
+
+<section id="s1">
+ <div class="progress">● ○ ○</div>
+ <div class="heart">🎀</div>
+ <div class="tag">A LITTLE SECRET</div>
+ <h1>Before you enter...</h1>
+ <p>I made a tiny corner of the internet just for you. ♡</p>
+ <p>When was your favourite boy born? 🎂</p>
+ <input id="dob" placeholder="DD/MM/YYYY" maxlength="10" autocomplete="off">
+ <button class="mainbtn" onclick="birthday()">Unlock the secret ♡</button>
+ <p class="hint" id="e1"></p>
+</section>
+
+<section id="s2" class="hidden">
+ <div class="progress">● ● ○</div>
+ <div class="heart">💌</div>
+ <div class="tag">ONE MORE THING</div>
+ <h1>A little question...</h1>
+ <p>What special nickname do you call him? 🥹</p>
+ <input id="nick" placeholder="Type his nickname" maxlength="40">
+ <button class="mainbtn" onclick="nickname()">That's the one ♡</button>
+ <p class="hint" id="e2"></p>
+</section>
+
+<section id="s3" class="hidden">
+ <div class="progress">● ● ●</div>
+ <div class="heart">🧸</div>
+ <div class="tag">JUST FOR YOU</div>
+ <h1>Welcome, Prapti ♡</h1>
+ <p>There's something I've been wanting to tell you...</p>
+ <div class="letter">Are you ready for your little surprise? 💗</div>
+ <button class="mainbtn" onclick="show('s4')">Open your letter 💌</button>
+</section>
+
+<section id="s4" class="hidden">
+ <div class="heart">୨୧ ♡ ୨୧</div>
+ <div class="tag">A QUESTION FROM AVI</div>
+ <h1>Prapti,<br>will you be my girlfriend?</h1>
+ <p>You make ordinary moments feel special, and I'm really glad you're in my life. ♡</p>
+ <div class="letter">If I could choose all over again,<br>I'd still choose you. Every time. 💗</div>
+ <div class="buttons">
+  <button onclick="yes()">YESSS! 💖</button>
+  <button class="secondary" id="no" onclick="nope()">No 🙈</button>
+ </div>
+ <p class="hint" id="nh"></p>
+</section>
+
+<section id="s5" class="hidden">
+ <div class="heart">💖</div>
+ <div class="tag">A MOMENT TO REMEMBER</div>
+ <h1>You mean so much to me!</h1>
+ <p>Prapti, thank you for being part of my world. You make my days brighter. ♡</p>
+ <div class="letter">With all my heart,<br>your Avi 💌</div>
+ <p>🌷 ♡ ∞ ♡ 🌷</p>
+ <p>I hope this made you smile!</p>
+</section>
+
+</main>
+<script>
+const MY_BIRTHDAY="07/02/2010";
+const MY_NICKNAME="Avi";
+
+function show(id){
+ ["s1","s2","s3","s4","s5"].forEach(x=>
+  document.getElementById(x).classList.add("hidden"));
+ document.getElementById(id).classList.remove("hidden");
+}
+function birthday(){
+ if(document.getElementById("dob").value.trim()===MY_BIRTHDAY){
+  document.getElementById("e1").textContent="";
+  show("s2");
+ }else{
+  document.getElementById("e1").textContent="Oops, try that date again ♡";
+ }
+}
+function nickname(){
+ if(document.getElementById("nick").value.trim().toLowerCase()===MY_NICKNAME.toLowerCase()){
+  document.getElementById("e2").textContent="";
+  show("s3");
+ }else{
+  document.getElementById("e2").textContent="Not quite! Think of his special nickname 🥹";
+ }
+}
+function nope(){
+ const b=document.getElementById("no");
+ b.classList.add("hidden");
+ document.getElementById("nh").textContent="Hehe 🙈 you can't click Nooo! 💗";
+ setTimeout(()=>{
+  b.classList.remove("hidden");
+  document.getElementById("nh").textContent="Take your time ♡";
+ },2000);
+}
+function yes(){
+ show("s5");
+ const layer=document.getElementById("confetti");
+ const symbols=["💗","💕","♡","🌸","✨"];
+ for(let i=0;i<24;i++){
+  const p=document.createElement("span");
+  p.className="petal";
+  p.textContent=symbols[i%symbols.length];
+  p.style.left=Math.random()*100+"%";
+  p.style.animationDelay=Math.random()*1.5+"s";
+  p.style.fontSize=(15+Math.random()*15)+"px";
+  layer.appendChild(p);
+  setTimeout(()=>p.remove(),5000);
+ }
+}
+document.getElementById("dob").addEventListener("keydown",e=>{if(e.key==="Enter")birthday()});
+document.getElementById("nick").addEventListener("keydown",e=>{if(e.key==="Enter")nickname()});
+</script>
+</body>
+</html>
