@@ -4,203 +4,353 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Prapti 💗</title>
-
+<title>For Prapti ♡</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+:root{
+ --pink:#ff82b2;--rose:#ffb5cf;--purple:#a58bff;
+ --white:#fff8fc;--muted:#f9dce9;
+}
 *{box-sizing:border-box}
-:root{--pink:#ff5f9e;--deep:#a62d68}
+html{scroll-behavior:smooth}
 body{
-  margin:0;min-height:100vh;display:grid;place-items:center;
-  overflow-x:hidden;padding:20px;color:#fff;
-  font-family:"Segoe UI",Arial,sans-serif;
-  background:linear-gradient(-45deg,#170c30,#6d245f,#bd477d,#32144d);
-  background-size:400% 400%;animation:bg 14s ease infinite;
+ margin:0;background:#170e26;color:var(--white);
+ font-family:'DM Sans',sans-serif;overflow-x:hidden;
 }
-@keyframes bg{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-#stars,.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}
-.star{position:absolute;color:#fff;opacity:.6;animation:twinkle 2s infinite alternate}
-@keyframes twinkle{to{opacity:.15;transform:scale(.65)}}
-.heart{
- position:absolute;bottom:-50px;animation:rise linear forwards;
- filter:drop-shadow(0 0 8px #ff8dbb)
+button{font:inherit;cursor:pointer}
+#sky{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.star{
+ position:absolute;color:white;opacity:.55;
+ animation:twinkle 3s infinite alternate;
 }
-@keyframes rise{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
-.card{
- position:relative;width:min(440px,100%);padding:34px 25px;
- text-align:center;border:1px solid #ffffff45;border-radius:30px;
- background:linear-gradient(145deg,#ffffff20,#ffffff08);
- backdrop-filter:blur(18px);
- box-shadow:0 20px 70px #09001870, inset 0 1px #ffffff35;
- animation:appear .8s ease both;
+@keyframes twinkle{to{opacity:.12;transform:scale(.5)}}
+.floating{
+ position:fixed;bottom:-40px;pointer-events:none;z-index:5;
+ animation:floatUp linear forwards;
 }
-@keyframes appear{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
-.badge{font-size:12px;letter-spacing:3px;color:#ffd3e6}
-.bigheart{
- font-size:66px;display:block;margin:14px auto;
- filter:drop-shadow(0 0 16px #ff73b1);
- animation:beat 1.5s infinite
+@keyframes floatUp{
+ to{transform:translateY(-110vh) rotate(35deg);opacity:0}
 }
-@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.13)}30%{transform:scale(1)}45%{transform:scale(1.08)}}
-h1{font-size:clamp(27px,7vw,38px);margin:10px 0 14px;line-height:1.2}
-p{color:#ffe3ef;line-height:1.7;font-size:15px}
-input{
- width:100%;padding:14px 15px;border-radius:14px;
- border:1px solid #ffffff55;background:#ffffff15;color:white;
- outline:none;font-size:16px;text-align:center;margin:10px 0 14px;
+.background{
+ position:fixed;inset:0;z-index:-1;
+ background:
+ radial-gradient(ellipse at 15% 20%,#762c6a 0,transparent 45%),
+ radial-gradient(ellipse at 85% 75%,#49347e 0,transparent 45%),
+ linear-gradient(140deg,#170e26,#25112d,#160f2c);
 }
-input::placeholder{color:#f5d6e6}
-input:focus{border-color:#ffb6d5;box-shadow:0 0 0 3px #ff8dbb22}
-button{
- border:0;border-radius:30px;padding:14px 20px;font-size:15px;
- font-weight:700;cursor:pointer;transition:transform .2s,box-shadow .2s;
+main{position:relative;z-index:1}
+section{padding:100px 20px;max-width:1000px;margin:auto}
+.hero{
+ min-height:100svh;display:grid;place-items:center;text-align:center;
+ padding-top:70px;padding-bottom:70px;
 }
-button:hover{transform:translateY(-3px);box-shadow:0 8px 25px #ff76b455}
-.primary{background:linear-gradient(100deg,#ff78b4,#ffb0cf);color:#571638;width:100%}
-.secondary{background:#ffffff15;color:#fff;border:1px solid #ffffff50}
-.buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
-.buttons button{flex:1;min-width:110px}
-.screen{display:none;animation:appear .6s ease both}
-.screen.active{display:block}
-.note{min-height:22px;color:#ffd4e5;font-size:13px;margin-top:12px}
-.small{font-size:12px;opacity:.8;margin-top:22px}
-.glowline{width:90px;height:2px;margin:18px auto;background:linear-gradient(90deg,transparent,#ffb5d5,transparent)}
-#noBtn{transition:opacity .2s,transform .2s}
-.yesText{font-size:19px;line-height:1.8}
+.hero-content{max-width:650px}
+.eyebrow{
+ color:#ffc3dd;font-size:11px;letter-spacing:4px;
+ text-transform:uppercase;
+}
+.hero-heart{
+ font-size:75px;display:block;margin:25px auto;
+ filter:drop-shadow(0 0 25px #ff78b4);
+ animation:heartbeat 1.5s infinite;
+}
+@keyframes heartbeat{
+ 0%,100%{transform:scale(1)}
+ 15%{transform:scale(1.13)}
+ 30%{transform:scale(1)}
+ 45%{transform:scale(1.08)}
+}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500}
+h1{font-size:clamp(43px,9vw,76px);margin:12px 0}
+h2{font-size:clamp(34px,6vw,49px);margin:10px 0 18px}
+h3{font-size:25px}
+p{color:var(--muted);line-height:1.85}
+.hero p{max-width:500px;margin:15px auto 28px}
+.gradient-text{
+ background:linear-gradient(90deg,#fff,#ff9fc6,#c4adff);
+ -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.btn{
+ display:inline-block;padding:14px 25px;border:0;border-radius:40px;
+ color:#491c3b;font-weight:700;
+ background:linear-gradient(110deg,#ff9dc5,#d5b6ff);
+ box-shadow:0 8px 30px #ff79b533;
+ transition:.25s;text-decoration:none;
+}
+.btn:hover{transform:translateY(-4px);box-shadow:0 12px 35px #ff79b566}
+.btn.outline{
+ background:#ffffff10;color:white;border:1px solid #ffffff55;
+ box-shadow:none;
+}
+.section-label{color:#ffb5d3;letter-spacing:3px;font-size:11px}
+.center{text-align:center}
+.panel{
+ background:linear-gradient(145deg,#ffffff17,#ffffff08);
+ border:1px solid #ffffff25;border-radius:25px;
+ padding:30px;backdrop-filter:blur(14px);
+ box-shadow:0 15px 55px #0003;
+}
+.apology{max-width:700px;margin:30px auto;text-align:center}
+.apology p{font-size:16px}
+.action-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:25px}
+.response{min-height:40px;margin-top:18px;color:#ffc6dd}
+.grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:35px;
+}
+.memory{
+ border-radius:22px;overflow:hidden;background:#ffffff12;
+ border:1px solid #ffffff25;transition:.3s;
+}
+.memory:hover{transform:translateY(-7px)}
+.memory img{
+ width:100%;height:220px;object-fit:cover;display:block;
+ background:linear-gradient(135deg,#71345e,#55417e);
+}
+.memory-copy{padding:17px}
+.memory-copy h3{margin:0 0 7px;font-size:21px}
+.memory-copy p{font-size:13px;margin:0}
+.reasons{
+ display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:30px;
+}
+.reason{
+ padding:22px;border-radius:20px;background:#ffffff10;
+ border:1px solid #ffffff1b;transition:.25s;
+}
+.reason:hover{background:#ffffff19;transform:translateY(-4px)}
+.reason span{font-size:26px}
+.reason p{font-size:14px;margin-bottom:0}
+.letter{
+ max-width:680px;margin:30px auto;
+ font-family:'Playfair Display',serif;font-size:19px;
+ line-height:2;color:#ffe5f0;
+}
+.signature{color:#ffb1d0;font-size:24px;font-style:italic}
+.final{
+ min-height:80vh;display:grid;place-items:center;text-align:center;
+}
+.final .panel{max-width:650px;padding:45px 30px}
+footer{text-align:center;padding:30px;color:#cbaac3;font-size:12px}
+nav{
+ position:fixed;top:0;left:0;right:0;z-index:10;
+ display:flex;justify-content:center;gap:22px;padding:17px 10px;
+ background:#170e26b9;backdrop-filter:blur(16px);
+ border-bottom:1px solid #ffffff16;
+}
+nav a{font-size:12px;color:#ffe4f0;text-decoration:none}
+nav a:hover{color:#ff9fc6}
+.divider{
+ width:100px;height:2px;margin:22px auto;
+ background:linear-gradient(90deg,transparent,#ffb5d5,transparent);
+}
+@media(max-width:650px){
+ nav{gap:13px;flex-wrap:wrap}
+ nav a{font-size:10px}
+ section{padding:75px 18px}
+ .grid{grid-template-columns:1fr}
+ .memory img{height:260px}
+ .reasons{grid-template-columns:1fr}
+ .panel{padding:23px}
+}
 </style>
 </head>
 
 <body>
-<div id="stars"></div>
-<div class="hearts" id="hearts"></div>
+<div class="background"></div>
+<div id="sky"></div>
 
-<main class="card">
-  <section class="screen active" id="s1">
-    <div class="badge">A LITTLE SECRET 💌</div>
-    <span class="bigheart">💗</span>
-    <h1>Hey, you! ✨</h1>
-    <p>Someone made a tiny universe just for you.<br>But first… a little secret check. 🌙</p>
-    <div class="glowline"></div>
-    <p>When is my birthday? 🎂</p>
-    <input id="birthday" placeholder="DD/MM/YYYY" autocomplete="off">
-    <button class="primary" onclick="checkBirthday()">Unlock my secret ♡</button>
-    <div class="note" id="n1"></div>
-  </section>
+<nav>
+ <a href="#home">HOME</a>
+ <a href="#sorry">SORRY 💌</a>
+ <a href="#memories">MEMORIES</a>
+ <a href="#reasons">WHY YOU</a>
+ <a href="#letter">LETTER</a>
+</nav>
 
-  <section class="screen" id="s2">
-    <div class="badge">ONE MORE LITTLE THING ✨</div>
-    <span class="bigheart">🧸</span>
-    <h1>You passed! 💕</h1>
-    <p>Now tell me… what nickname do you call me? 🙈</p>
-    <input id="nickname" placeholder="Type the nickname…">
-    <button class="primary" onclick="checkNickname()">That's my person 💗</button>
-    <div class="note" id="n2"></div>
-  </section>
+<main>
+<!-- HOME -->
+<section class="hero" id="home">
+ <div class="hero-content">
+  <div class="eyebrow">A little world made for you</div>
+  <span class="hero-heart">💗</span>
+  <h1>For <span class="gradient-text">Prapti</span></h1>
+  <p>
+   I made something for you. Not because I had to,
+   but because you deserve to know how special you are to me.
+  </p>
+  <a class="btn" href="#sorry">Open your surprise ♡</a>
+  <p style="font-size:12px;margin-top:35px">Scroll slowly… there's a lot of love here ✨</p>
+ </div>
+</section>
 
-  <section class="screen" id="s3">
-    <div class="badge">MADE WITH LOVE ♡</div>
-    <span class="bigheart">🌷</span>
-    <p>Especially for you,</p>
-    <h1>Prapti 💖</h1>
-    <div class="glowline"></div>
-    <p>You've made ordinary moments feel special.<br>So I have one important question…</p>
-    <button class="primary" onclick="showScreen('s4')">Open your surprise 💌</button>
-  </section>
+<!-- APOLOGY -->
+<section id="sorry">
+ <div class="center">
+  <div class="section-label">FIRST THINGS FIRST</div>
+  <h2>I'm sorry, <span class="gradient-text">Prapti.</span></h2>
+  <div class="divider"></div>
+ </div>
+ <div class="panel apology">
+  <span style="font-size:45px">🥺💗</span>
+  <p>
+   I know sometimes I don't know how to make things right.
+   Sometimes I struggle to find the perfect words,
+   but I never want you to think that your feelings don't matter to me.
+  </p>
+  <p>
+   I'm sorry for the moments when I didn't understand you
+   or didn't make enough effort to make you feel better.
+   I don't want to just say sorry. I want to learn,
+   listen and show you through my actions.
+  </p>
+  <p>
+   You don't have to stop being upset immediately.
+   Your feelings matter, and I want to understand them.
+  </p>
+  <div class="divider"></div>
+  <h3>Can we make things better? 🌷</h3>
+  <div class="action-row">
+   <button class="btn" onclick="talk()">I want to talk 💗</button>
+   <button class="btn outline" onclick="space()">I need a little time</button>
+  </div>
+  <div class="response" id="apologyResponse"></div>
+ </div>
+</section>
 
-  <section class="screen" id="s4">
-    <div class="badge">JUST YOU & ME ✨</div>
-    <span class="bigheart">💘</span>
-    <h1>Prapti, will you say YES? 🥹</h1>
-    <p>I'd love to make more memories with you,<br>share more laughs, and make you feel special. 💗</p>
-    <div class="buttons">
-      <button class="primary" onclick="sayYes()">YESSS! 💖</button>
-      <button class="secondary" id="noBtn" onclick="noClick()">No 🙈</button>
-    </div>
-    <div class="note" id="n4">Choose whatever feels right to you 💗</div>
-  </section>
+<!-- MEMORIES -->
+<section id="memories">
+ <div class="center">
+  <div class="section-label">OUR LITTLE UNIVERSE</div>
+  <h2>Little <span class="gradient-text">memories</span></h2>
+  <p>Some moments deserve to be remembered forever.</p>
+ </div>
+ <div class="grid">
+  <article class="memory">
+   <img src="photo1.jpg" alt="Our first memory" onerror="this.style.display='none'">
+   <div class="memory-copy">
+    <h3>Our beginning 🌸</h3>
+    <p>One of those moments I'll always remember.</p>
+   </div>
+  </article>
+  <article class="memory">
+   <img src="photo2.jpg" alt="A favourite moment" onerror="this.style.display='none'">
+   <div class="memory-copy">
+    <h3>My favourite smile 💗</h3>
+    <p>A little moment that makes me happy.</p>
+   </div>
+  </article>
+  <article class="memory">
+   <img src="photo3.jpg" alt="A special memory" onerror="this.style.display='none'">
+   <div class="memory-copy">
+    <h3>Us being us 🫶🏻</h3>
+    <p>Here's to all the memories still waiting for us.</p>
+   </div>
+  </article>
+ </div>
+ <p class="center" style="font-size:12px;margin-top:20px">
+  Add your own pictures by uploading photo1.jpg, photo2.jpg and photo3.jpg to GitHub.
+ </p>
+</section>
 
-  <section class="screen" id="s5">
-    <div class="badge">A MOMENT TO REMEMBER ✨</div>
-    <span class="bigheart">💞</span>
-    <h1>You're so special, Prapti! 🌎</h1>
-    <div class="glowline"></div>
-    <p class="yesText">Every little moment with you is a memory worth keeping. 💗</p>
-    <p>Thank you for being you.<br>Here's to more smiles, silly moments and beautiful memories together. 🌷</p>
-    <span style="font-size:30px">💖 💐 🫶🏻 💖</span>
-    <p class="small">Made with love, by Avi ♡</p>
-  </section>
+<!-- REASONS -->
+<section id="reasons">
+ <div class="center">
+  <div class="section-label">A MILLION LITTLE THINGS</div>
+  <h2>Why I love <span class="gradient-text">you</span></h2>
+  <p>And I could keep going… 💕</p>
+ </div>
+ <div class="reasons">
+  <div class="reason"><span>🌷</span><h3>Your personality</h3><p>The little things that make you uniquely you.</p></div>
+  <div class="reason"><span>🥹</span><h3>Your expressions</h3><p>Even your smallest reactions make moments special.</p></div>
+  <div class="reason"><span>💌</span><h3>Your affection</h3><p>The way you express your feelings means so much.</p></div>
+  <div class="reason"><span>✨</span><h3>Your presence</h3><p>You make ordinary days feel a little more magical.</p></div>
+  <div class="reason"><span>🧸</span><h3>Your little habits</h3><p>All those tiny things that make me think of you.</p></div>
+  <div class="reason"><span>💗</span><h3>Simply you</h3><p>I don't need a reason for every little thing. I appreciate you as you are.</p></div>
+ </div>
+</section>
+
+<!-- LETTER -->
+<section id="letter">
+ <div class="center">
+  <div class="section-label">A LETTER FROM AVI</div>
+  <h2>Just for <span class="gradient-text">you</span> 💌</h2>
+ </div>
+ <div class="panel letter">
+  My Praptiii ❤️
+  <br><br>
+  I don't think you realise how special you are to me.
+  I know I'm not always the best at expressing myself,
+  and sometimes I don't know how to find the right words.
+  But that doesn't mean I don't care.
+  <br><br>
+  I want to keep learning about you, understanding you
+  and becoming someone who makes you feel heard and appreciated.
+  I don't expect everything to be perfect.
+  I just want us to keep communicating, growing
+  and making beautiful memories together.
+  <br><br>
+  Thank you for being a part of my life.
+  I hope this little website makes you smile,
+  even if just a little.
+  <br><br>
+  <span class="signature">With love, your Avi ♡</span>
+ </div>
+</section>
+
+<!-- FINAL -->
+<section class="final" id="final">
+ <div class="panel">
+  <div class="section-label">ONE LAST LITTLE SURPRISE</div>
+  <span class="hero-heart">💖</span>
+  <h2>You're my favourite <span class="gradient-text">person.</span></h2>
+  <p>
+   No website could ever fit all the things I want to say.
+   But I hope this one reminds you that you are appreciated,
+   cared for and loved.
+  </p>
+  <button class="btn" onclick="celebrate()">Send some love ✨</button>
+  <p id="finalMessage" class="response"></p>
+  <div class="signature">— Avi 💗</div>
+ </div>
+</section>
 </main>
 
+<footer>Made with lots of love ♡ Just for Prapti</footer>
+
 <script>
-const MY_BIRTHDAY="07/02/2010";
-const MY_NICKNAME="Avi";
-
-function showScreen(id){
- document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
- document.getElementById(id).classList.add("active");
+function talk(){
+ document.getElementById("apologyResponse").textContent=
+ "I'm here to listen. You can tell me what's on your mind. 💗";
 }
-
-function checkBirthday(){
- const value=document.getElementById("birthday").value.trim();
- if(value===MY_BIRTHDAY){showScreen("s2")}
- else{document.getElementById("n1").textContent="Hehe, that's not it! Try again 💌"}
+function space(){
+ document.getElementById("apologyResponse").textContent=
+ "Take your time. I'll respect that, and we can talk whenever you're ready. 🌷";
 }
-function checkNickname(){
- const value=document.getElementById("nickname").value.trim();
- if(value.toLowerCase()===MY_NICKNAME.toLowerCase()){showScreen("s3")}
- else{document.getElementById("n2").textContent="Almost! Think of the nickname you gave me 🙈"}
+function heart(){
+ const h=document.createElement("div");
+ h.className="floating";
+ h.textContent=["💗","💕","💖","✨","🌸"][Math.floor(Math.random()*5)];
+ h.style.left=Math.random()*100+"vw";
+ h.style.fontSize=(15+Math.random()*22)+"px";
+ h.style.animationDuration=(5+Math.random()*5)+"s";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),10000);
 }
-
-let noCount=0;
-function noClick(){
- noCount++;
- const note=document.getElementById("n4");
- const btn=document.getElementById("noBtn");
- if(noCount<3){
-   note.textContent="Hehe 🙈 you can't click Nooo! 💗";
-   btn.style.opacity="0";
-   btn.style.pointerEvents="none";
-   setTimeout(()=>{
-     btn.style.opacity="1";
-     btn.style.pointerEvents="auto";
-   },1000);
- }else{
-   note.textContent="It's okay to say no too 💗 Your choice matters.";
-   btn.textContent="No, thank you";
-   btn.onclick=()=>{note.textContent="Thanks for being honest. 💗";};
- }
+function celebrate(){
+ for(let i=0;i<35;i++)setTimeout(heart,i*90);
+ document.getElementById("finalMessage").textContent=
+ "A little reminder: you are very special to me. 💗";
 }
-
-function sayYes(){
- showScreen("s5");
- for(let i=0;i<24;i++)setTimeout(makeHeart,i*100);
-}
-function makeHeart(){
- const el=document.createElement("span");
- el.className="heart";
- el.textContent=["💗","💕","💖","✨","🌸"][Math.floor(Math.random()*5)];
- el.style.left=Math.random()*100+"vw";
- el.style.fontSize=(14+Math.random()*20)+"px";
- el.style.animationDuration=(4+Math.random()*4)+"s";
- document.getElementById("hearts").appendChild(el);
- setTimeout(()=>el.remove(),8500);
-}
-for(let i=0;i<28;i++){
+for(let i=0;i<35;i++){
  const s=document.createElement("span");
  s.className="star";s.textContent="✦";
  s.style.left=Math.random()*100+"%";
  s.style.top=Math.random()*100+"%";
- s.style.fontSize=(6+Math.random()*12)+"px";
+ s.style.fontSize=(7+Math.random()*13)+"px";
  s.style.animationDelay=Math.random()*3+"s";
- document.getElementById("stars").appendChild(s);
+ document.getElementById("sky").appendChild(s);
 }
-setInterval(makeHeart,1300);
-
-document.getElementById("birthday").addEventListener("keydown",e=>{
- if(e.key==="Enter")checkBirthday();
-});
-document.getElementById("nickname").addEventListener("keydown",e=>{
- if(e.key==="Enter")checkNickname();
-});
+setInterval(heart,1800);
 </script>
 </body>
 </html>
